@@ -12,13 +12,13 @@ J = 0;
 % ====================== YOUR CODE HERE ======================
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
-for i=1:size(X, 1),
-  temp = X(i, :);
-  temp2 = theta' * temp';
-  temp2 = temp2 - y(i);
-  J = J + ((temp2 ^ 2) / (2*m));
- end
 
+% =========================VECTORISED IMPLEMENTATION=======================
+
+X = theta' * X';
+X = X - y';
+X = X .^ 2;
+J = sum(X, 2) / (2*m);
 
 % =========================================================================
 
